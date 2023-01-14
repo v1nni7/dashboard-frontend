@@ -1,0 +1,70 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100;200;300;400;500;600;700&display=swap");
+
+$blue-900: #1e3a8a;
+$blue-800: #1e40af;
+$blue-700: #1d4ed8;
+$blue-600: #2563eb;
+$blue-500: #3b82f6;
+$blue-400: #60a5fa;
+$blue-300: #93c5fd;
+$blue-200: #bef3ff;
+$blue-100: #eff9ff;
+
+@import "./reset.scss";
+@import "./signin.scss";
+@import "./sidebar.scss";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Lexend Deca", sans-serif;
+}
+
+input,
+button {
+  font-family: "Lexend Deca", sans-serif;
+}
+
+button {
+  cursor: pointer;
+}
+
+.wrapper-page {
+  display: flex;
+}
+
+.flex {
+  display: flex;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.h-screen {
+  height: 100vh;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 12px;
+
+  @media screen and (min-width: 768px) {
+    width: 720px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    width: 960px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 1140px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 1320px;
+  }
+}
