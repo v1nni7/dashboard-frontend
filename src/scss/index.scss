@@ -10,9 +10,8 @@ $blue-300: #93c5fd;
 $blue-200: #bef3ff;
 $blue-100: #eff9ff;
 
-@import "./reset.scss";
-@import "./signin.scss";
-@import "./sidebar.scss";
+@import "./__reset.scss";
+@import "./__login.scss";
 
 * {
   box-sizing: border-box;
@@ -40,6 +39,10 @@ button {
   display: flex;
 }
 
+.justify-between {
+  justify-content: space-between;
+}
+
 .w-100 {
   width: 100%;
 }
@@ -49,22 +52,13 @@ button {
 }
 
 .container {
+  width: 100%;
   margin: 0 auto;
   padding: 0 12px;
+}
 
-  @media screen and (min-width: 768px) {
-    width: 720px;
-  }
-
-  @media screen and (min-width: 1024px) {
-    width: 960px;
-  }
-
-  @media screen and (min-width: 1280px) {
-    width: 1140px;
-  }
-
-  @media screen and (min-width: 1440px) {
-    width: 1320px;
-  }
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -12px;
 }
