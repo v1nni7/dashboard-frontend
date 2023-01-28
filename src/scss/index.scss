@@ -12,6 +12,7 @@ $blue-100: #eff9ff;
 
 @import "./__reset.scss";
 @import "./__login.scss";
+@import "./_sidebar.scss";
 
 * {
   box-sizing: border-box;
@@ -52,13 +53,11 @@ button {
 }
 
 .container {
-  width: 100%;
+  width: 85%;
   margin: 0 auto;
   padding: 0 12px;
 }
 
 .row {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 -12px;
+  margin: 0 12px;
 }
