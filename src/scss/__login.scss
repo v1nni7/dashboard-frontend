@@ -53,9 +53,16 @@
           color: #ffffff;
           font-weight: 600;
           font-size: 1.2rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
 
           &:hover {
             background-color: #2563eb;
+          }
+
+          &:disabled {
+            background-color: #4765a7;
           }
         }
       }

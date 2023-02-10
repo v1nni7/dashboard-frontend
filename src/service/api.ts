@@ -4,13 +4,30 @@ const api = axios.create({
   baseURL: "http://localhost:5000",
   headers: {
     "Content-Type": "application/json",
-    Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6NSwiaWF0IjoxNjc1MTI1MDk4LCJleHAiOjE2NzUyMTE0OTh9.Btr4ckVzLHCKXmW5LjVw-SdLw_SbM6wIisPRqZId7vk",
   },
 });
 
+// TODO: Created a folder for types
+
+type SignInProps = {
+  email: string;
+  password: string;
+};
+
 function getUsersService() {
-  return api.get("/users/list");
+  return api.get("/users/list", {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+    },
+  });
 }
 
-export { getUsersService };
+function signInService(data: SignInProps) {
+  return api.post("/users/sign-in", data, {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+    },
+  });
+}
+
+export { signInService, getUsersService };

@@ -1,4 +1,9 @@
+import { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { Oval } from "react-loader-spinner";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { signInService } from "../service/api";
 
 type FieldValues = {
   email: string;
@@ -6,9 +11,32 @@ type FieldValues = {
 };
 
 function Login() {
-  const { register, handleSubmit, watch } = useForm<FieldValues>();
+  const navigate = useNavigate();
 
-  const onSubmit: SubmitHandler<FieldValues> = (data) => console.log(data);
+  const [loading, setLoading] = useState(false);
+  const { register, handleSubmit } = useForm<FieldValues>();
+
+  const onSubmit: SubmitHandler<FieldValues> = async (data) => {
+    try {
+      setLoading(true);
+      const response = await signInService(data);
+
+      if (response.status === 200) {
+        navigate("/");
+        localStorage.setItem("token", response.data.token);
+      }
+    } catch (err: Error | any) {
+      console.log(err);
+      toast.error(err.response.data, {
+        position: "bottom-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <>
@@ -23,6 +51,7 @@ function Login() {
                 placeholder="E-mail"
                 className="form-control"
                 {...register("email")}
+                disabled={loading}
               />
             </div>
             <div className="form-group">
@@ -31,14 +60,25 @@ function Login() {
                 placeholder="Password"
                 className="form-control"
                 {...register("password")}
+                disabled={loading}
               />
             </div>
             <button className="form-forgot-password">
               Forgot your password?
             </button>
             <div className="form-group">
-              <button type="submit" className="form-submit">
-                Submit
+              <button type="submit" className="form-submit" disabled={loading}>
+                {loading ? (
+                  <Oval
+                    height={35}
+                    color="#ffffff"
+                    secondaryColor="#ffffff"
+                    strokeWidth={4}
+                    strokeWidthSecondary={4}
+                  />
+                ) : (
+                  "Submit"
+                )}
               </button>
             </div>
           </form>
