@@ -1,0 +1,12 @@
+.table {
+  overflow: hidden;
+  border-radius: 12px;
+
+  tr {
+    th {
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      background-color: #ccc;
+    }
+  }
+}

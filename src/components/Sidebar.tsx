@@ -23,13 +23,13 @@ function Sidebar() {
             </NavLink>
           </li>
           <li className="sidebar-item">
-            <NavLink className="sidebar-link" to="/users/create">
+            <NavLink className="sidebar-link" to="/users/list">
               <BiUser />
               List Users
             </NavLink>
           </li>
           <li className="sidebar-item">
-            <NavLink className="sidebar-link" to="/users/list">
+            <NavLink className="sidebar-link" to="/users/create">
               <BiUserPlus />
               Create User
             </NavLink>
