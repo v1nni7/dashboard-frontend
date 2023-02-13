@@ -30,4 +30,12 @@ function signInService(data: SignInProps) {
   });
 }
 
-export { signInService, getUsersService };
+function deleteUserService(id: number) {
+  return api.delete(`/users/delete/${id}`, {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+    },
+  });
+}
+
+export { signInService, getUsersService, deleteUserService };

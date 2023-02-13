@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Oval } from "react-loader-spinner";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { AuthContext } from "../hooks/AuthContext";
 import { signInService } from "../service/api";
 
 type FieldValues = {
@@ -13,6 +14,7 @@ type FieldValues = {
 function Login() {
   const navigate = useNavigate();
 
+  const { setUser } = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
   const { register, handleSubmit } = useForm<FieldValues>();
 
@@ -23,16 +25,13 @@ function Login() {
 
       if (response.status === 200) {
         navigate("/");
+        setUser(response.data);
         localStorage.setItem("token", response.data.token);
+        localStorage.setItem("user", JSON.stringify(response.data));
       }
     } catch (err: Error | any) {
       console.log(err);
-      toast.error(err.response.data, {
-        position: "bottom-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-      });
+      toast.error(err.response.data);
     } finally {
       setLoading(false);
     }

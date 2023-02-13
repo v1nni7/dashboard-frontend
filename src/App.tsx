@@ -6,32 +6,41 @@ import Login from "./pages/Login";
 import Users from "./pages/Users";
 import NotFound from "./pages/NotFound";
 import PrivateRoute from "./components/PrivateRoute";
+import { AuthContextProvider } from "./hooks/AuthContext";
 
 function App() {
   return (
-    <BrowserRouter>
-      <ToastContainer className="styled-toastify" />
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <PrivateRoute>
-              <Home />
-            </PrivateRoute>
-          }
+    <AuthContextProvider>
+      <BrowserRouter>
+        <ToastContainer
+          autoClose={5000}
+          closeOnClick={true}
+          hideProgressBar={false}
+          position="bottom-center"
+          className="styled-toastify"
         />
-        <Route
-          path="/users/:operation"
-          element={
-            <PrivateRoute>
-              <Users />
-            </PrivateRoute>
-          }
-        />
-        <Route path="/login" element={<Login />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </BrowserRouter>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <PrivateRoute>
+                <Home />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/users/:operation"
+            element={
+              <PrivateRoute>
+                <Users />
+              </PrivateRoute>
+            }
+          />
+          <Route path="/login" element={<Login />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
+    </AuthContextProvider>
   );
 }
 
