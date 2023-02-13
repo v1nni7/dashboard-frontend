@@ -39,7 +39,7 @@ function List() {
         const response = await deleteUserService(id);
 
         if (response.status === 200) {
-          getUsers();
+          setUsers(users.filter((user: User) => user.id !== id));
           toast.success("User deleted successfully!");
         }
       } catch (error: any) {
