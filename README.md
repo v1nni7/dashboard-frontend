@@ -12,7 +12,7 @@ Sobre o projeto</h2>
     <p>Esse projeto foi criado para facilitar o controle de usuários, produtos, ganhos e perdas de um ECommerce, ajudando os administradores a visualizarem como está o andamento de suas vendas e lucros!</p>
 
   <br />
-  <h2> <img src="https://user-images.githubusercontent.com/78610762/218601766-468b15e1-c66c-45bd-9513-310fc6e74012.png" width="24px" />Tecnologias Utilizadas</h2>
+  <h2> <img src="https://user-images.githubusercontent.com/78610762/218601766-468b15e1-c66c-45bd-9513-310fc6e74012.png" width="24px" /> Tecnologias Utilizadas</h2>
   
   <div>
       <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" />
