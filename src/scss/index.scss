@@ -11,10 +11,11 @@ $blue-200: #bef3ff;
 $blue-100: #eff9ff;
 
 @import "./__reset.scss";
+@import "./__home.scss";
 @import "./__login.scss";
 @import "./__table.scss";
 @import "./__sidebar.scss";
-@import "./__home.scss";
+@import "./__navbar.scss";
 
 * {
   box-sizing: border-box;
@@ -34,32 +35,15 @@ button {
   cursor: pointer;
 }
 
-.wrapper-page {
-  display: flex;
-}
-
-.flex {
-  display: flex;
-}
-
-.justify-between {
-  justify-content: space-between;
-}
-
-.w-100 {
-  width: 100%;
-}
-
-.h-screen {
-  height: 100vh;
+.display-grid {
+  display: grid;
+  grid-template-areas: "sidebar navbar" "sidebar content";
+  grid-template-columns: 260px 1fr;
+  grid-template-rows: 60px 1fr;
 }
 
 .container {
-  width: 85%;
-  margin: 0 auto;
-  padding: 0 12px;
-}
-
-.row {
-  margin: 0 12px;
+  width: 100%;
+  padding: 12px;
+  grid-area: content;
 }

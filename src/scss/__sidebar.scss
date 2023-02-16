@@ -2,8 +2,8 @@
   width: 260px;
   height: 100vh;
   padding: 12px;
+  grid-area: sidebar;
   background-color: #1a1a1d;
-  border-radius: 0 12px 12px 0;
 
   .sidebar-brand {
     display: flex;
