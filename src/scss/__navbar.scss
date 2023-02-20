@@ -1,6 +1,6 @@
 .navbar {
-  padding: 12px;
   display: flex;
+  padding: 12px 36px;
   align-items: center;
   justify-content: flex-end;
   background-color: #1a1a1d;
@@ -8,6 +8,7 @@
   .navbar-user-profile {
     display: flex;
     cursor: pointer;
+    position: relative;
     align-items: center;
 
     .user-profile-image {
@@ -15,6 +16,66 @@
       height: 35px;
       border-radius: 6px;
       background-color: $blue-500;
+    }
+
+    .dropdown {
+      top: 40px;
+      right: -25px;
+      width: 120px;
+      height: 240px;
+      display: none;
+      overflow: hidden;
+      transition: 0.2s;
+      position: absolute;
+      border-radius: 6px;
+      background-color: #525252;
+
+      .dropdown-list {
+        .dropdown-item {
+          padding: 12px 8px;
+          transition: 0.2s;
+          text-align: center;
+
+          .dropdown-link {
+            border: none;
+            font-size: 1rem;
+            color: #ffffff;
+            text-decoration: none;
+            background-color: transparent;
+          }
+
+          &:hover {
+            background-color: #9b9b9b2f;
+          }
+        }
+      }
+
+      &.show {
+        display: block;
+        animation: openDropdown 0.2s;
+      }
+
+      &.hidden {
+        animation: closeDropdown 0.2s;
+      }
+
+      @keyframes openDropdown {
+        0% {
+          height: 0;
+        }
+        100% {
+          height: 240px;
+        }
+      }
+
+      @keyframes closeDropdown {
+        0% {
+          height: 240px;
+        }
+        100% {
+          height: 0;
+        }
+      }
     }
 
     svg {

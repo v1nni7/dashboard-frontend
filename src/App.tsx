@@ -10,8 +10,8 @@ import { AuthContextProvider } from "./hooks/AuthContext";
 
 function App() {
   return (
-    <AuthContextProvider>
-      <BrowserRouter>
+    <BrowserRouter>
+      <AuthContextProvider>
         <ToastContainer
           autoClose={5000}
           closeOnClick={true}
@@ -39,8 +39,8 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </BrowserRouter>
-    </AuthContextProvider>
+      </AuthContextProvider>
+    </BrowserRouter>
   );
 }
 

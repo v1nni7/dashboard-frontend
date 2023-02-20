@@ -46,7 +46,7 @@ function Login() {
             <div className="form-group">
               <input
                 type="text"
-                autoComplete="off"
+                autoComplete="current-email"
                 placeholder="E-mail"
                 className="form-control"
                 {...register("email")}
@@ -56,6 +56,7 @@ function Login() {
             <div className="form-group">
               <input
                 type="password"
+                autoComplete="current-password"
                 placeholder="Password"
                 className="form-control"
                 {...register("password")}
