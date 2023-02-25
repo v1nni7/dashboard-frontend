@@ -10,17 +10,14 @@ function Sidebar() {
       <div className="sidebar">
         <div className="sidebar-brand">
           <h1 className="sidebar-brand-text">My Dashboard</h1>
-
-          <div className="sidebar-close">
-            <BiArrowToLeft />
-          </div>
         </div>
         <ul className="sidebar-nav">
           <li className="sidebar-item">
-            <NavLink className="sidebar-link" to="/">
+            <button></button>
+            {/* <NavLink className="sidebar-link" to="/">
               <BiHome />
               Home
-            </NavLink>
+            </NavLink> */}
           </li>
           <li className="sidebar-item">
             <NavLink className="sidebar-link" to="/users/list">

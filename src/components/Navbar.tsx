@@ -6,10 +6,15 @@ import { AuthContext } from "../hooks/AuthContext";
 function Navbar() {
   const { logout } = useContext(AuthContext);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const navbarUserRef = useRef<HTMLDivElement>(null);
   const [showDropdown, setShowDropdown] = useState(false);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
+      if (navbarUserRef.current?.contains(event.target as Node)) {
+        return;
+      }
+
       if (
         dropdownRef.current &&
         !dropdownRef.current.contains(event.target as Node)
@@ -28,8 +33,9 @@ function Navbar() {
   return (
     <nav className="navbar">
       <div
+        ref={navbarUserRef}
         className="navbar-user-profile"
-        onClick={() => setShowDropdown(true)}
+        onClick={() => setShowDropdown(!showDropdown)}
       >
         <div className="user-profile-image"></div>
         <BiCaretDown />
