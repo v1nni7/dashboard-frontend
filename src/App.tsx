@@ -7,10 +7,12 @@ import Users from "./pages/Users";
 import NotFound from "./pages/NotFound";
 import PrivateRoute from "./components/PrivateRoute";
 import { AuthContextProvider } from "./hooks/AuthContext";
+import { GlobalStyles } from "./styles/Global";
 
 function App() {
   return (
     <BrowserRouter>
+      <GlobalStyles />
       <AuthContextProvider>
         <ToastContainer
           autoClose={5000}
